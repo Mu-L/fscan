@@ -1,6 +1,6 @@
 name: 🎯 误报/漏报
 description: 报告扫描结果不准确的问题
-title: "[Accuracy] "
+title: "[Accuracy] 服务名 - 误报/漏报描述"
 labels: ["accuracy"]
 
 body:
@@ -54,15 +54,33 @@ body:
     validations:
       required: true
 
-  - type: textarea
-    id: environment
+  - type: dropdown
+    id: target-os
     attributes:
-      label: 目标环境
-      description: 描述目标的环境信息（请脱敏）
-      placeholder: |
-        - 目标系统: Windows Server 2019 / Ubuntu 22.04
-        - 服务版本: MySQL 8.0 / Redis 7.0
-        - 网络环境: 直连 / 通过代理 / VPN
+      label: 目标操作系统
+      options:
+        - Windows Server 2022
+        - Windows Server 2019
+        - Windows Server 2016
+        - Windows 10/11
+        - Ubuntu
+        - CentOS/RHEL
+        - Debian
+        - 其他 Linux
+        - 网络设备
+        - 未知
+    validations:
+      required: true
+
+  - type: dropdown
+    id: network
+    attributes:
+      label: 网络环境
+      options:
+        - 直连
+        - 通过代理
+        - VPN
+        - 跨网段
     validations:
       required: true
 
@@ -76,11 +94,16 @@ body:
     validations:
       required: true
 
-  - type: input
+  - type: dropdown
     id: version
     attributes:
       label: fscan 版本
-      placeholder: "如: 1.8.4"
+      options:
+        - 2.1.0
+        - 2.0.1
+        - 2.0.0
+        - 1.8.4
+        - 其他/自编译
     validations:
       required: true
 

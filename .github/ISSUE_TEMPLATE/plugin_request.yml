@@ -1,6 +1,6 @@
 name: 🔌 新插件/协议支持
 description: 请求支持新的服务、协议或漏洞检测
-title: "[Plugin] "
+title: "[Plugin] 协议/服务名称"
 labels: ["plugin", "enhancement"]
 
 body:
@@ -76,6 +76,8 @@ body:
         - 较为常见 (经常遇到)
         - 偶尔遇到
         - 较少见但重要
+    validations:
+      required: true
 
   - type: checkboxes
     id: contribution

@@ -1,6 +1,6 @@
 name: 🐛 Bug 报告
 description: 报告扫描异常、崩溃或错误行为
-title: "[Bug] "
+title: "[Bug] 简要描述问题"
 labels: ["bug"]
 
 body:
@@ -70,16 +70,50 @@ body:
       description: 粘贴相关的错误信息或日志（请脱敏敏感信息）
       render: shell
 
-  - type: textarea
-    id: environment
+  - type: dropdown
+    id: version
     attributes:
-      label: 环境信息
-      description: 请提供运行环境信息
-      value: |
-        - fscan 版本: [如 1.8.4]
-        - 操作系统: [如 Windows 11 / Ubuntu 22.04 / macOS 14]
-        - 架构: [如 amd64 / arm64]
-        - Go 版本 (如自编译): [如 go1.20.10]
+      label: fscan 版本
+      options:
+        - 2.1.0
+        - 2.0.1
+        - 2.0.0
+        - 1.8.4
+        - 其他/自编译
+    validations:
+      required: true
+
+  - type: dropdown
+    id: os
+    attributes:
+      label: 操作系统
+      options:
+        - Windows 11
+        - Windows 10
+        - Windows Server 2022
+        - Windows Server 2019
+        - Ubuntu 22.04
+        - Ubuntu 20.04
+        - CentOS 7
+        - CentOS 8/Stream
+        - Debian 11/12
+        - Kali Linux
+        - macOS 14 (Sonoma)
+        - macOS 13 (Ventura)
+        - 其他 Linux
+        - 其他
+    validations:
+      required: true
+
+  - type: dropdown
+    id: arch
+    attributes:
+      label: 系统架构
+      options:
+        - amd64 (x86_64)
+        - arm64 (aarch64)
+        - 386 (x86)
+        - arm
     validations:
       required: true
 
@@ -87,4 +121,4 @@ body:
     id: additional
     attributes:
       label: 补充信息
-      description: 其他可能有助于排查问题的信息
+      description: 其他可能有助于排查问题的信息（如自编译请注明 Go 版本）
