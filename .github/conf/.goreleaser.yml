@@ -137,8 +137,8 @@ builds:
 upx:
   - ids: [fscan, fscan-nolocal, fscan-web]
     enabled: true
-    goos: [windows, linux]
-    goarch: [amd64, "386"]
+    goos: [windows, linux, freebsd]
+    goarch: [amd64, "386", arm, arm64, mips, mipsle]
     compress: best
     brute: false
     lzma: false
